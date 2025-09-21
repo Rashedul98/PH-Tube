@@ -39,7 +39,7 @@ const checkVids = (videos) => {
     videos.forEach(video => {
         const vidContainer = document.createElement('div');
         vidContainer.innerHTML = `
-        <div class="card bg-base-100 w-96 shadow-sm">
+        <div class="card bg-base-100  shadow-sm">
              <figure>
                 <img src="${video.thumbnail}"/>
             </figure>
@@ -48,7 +48,10 @@ const checkVids = (videos) => {
                 <p>${video.description}</p>
             </div>
         </div>
+
+        
         `
+
         container.appendChild(vidContainer);
     });
 
