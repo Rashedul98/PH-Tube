@@ -21,4 +21,40 @@ const displayCategories = (data) => {
     }
 }
 
-// 
+// Creating Dynamic Video Sections
+
+const getAllVideos = async () => {
+    const getResponse = await fetch("https://openapi.programming-hero.com/api/phero-tube/videos");
+    const datas = await getResponse.json();
+    console.log(datas.videos);
+
+    checkVids(datas.videos);
+
+}
+getAllVideos();
+
+const checkVids = (videos) => {
+    const container = document.getElementById('all-video-container');
+
+    videos.forEach(video => {
+        const vidContainer = document.createElement('div');
+        vidContainer.innerHTML = `
+        <div class="card bg-base-100 w-96 shadow-sm">
+             <figure>
+                <img src="${video.thumbnail}"/>
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title">${video.title}</h2>
+                <p>${video.description}</p>
+            </div>
+        </div>
+        `
+        container.appendChild(vidContainer);
+    });
+
+}
+// class="max-w-[400px] max-h-[200px]"
+/**
+ *        <img class="w-[200px]" src="${video.thumbnail}" alt="">
+            <h1>${video.title}</h1>
+ */
