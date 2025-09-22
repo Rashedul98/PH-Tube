@@ -1,4 +1,4 @@
-// Creating Dynamic Category Section
+// Creating Dynamic ALL Category Section
 const getAllCategoris = async () => {
     const response = await fetch("https://openapi.programming-hero.com/api/phero-tube/categories")
     const data = await response.json();
@@ -36,7 +36,7 @@ const getAllVideos = async () => {
 
 const checkVids = (videos) => {
     const container = document.getElementById('all-video-container');
-
+    container.innerHTML = ``;
     videos.forEach(video => {
         const vidContainer = document.createElement('div');
         vidContainer.innerHTML = `
@@ -72,6 +72,7 @@ const checkVids = (videos) => {
 
 }
 
+// Creating category wise video section:
 const getCategoryVideos = async (id) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/phero-tube/category/${id}`);
     const data = await response.json();
@@ -82,6 +83,7 @@ const viewCategoryVideo = (categories) => {
     console.log(categories);
 
     const container = document.getElementById("all-video-container");
+    container.innerHTML = ``;
 
     for (const cats of categories) {
         const vidContainer = document.createElement('div');
