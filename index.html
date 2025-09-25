@@ -8,6 +8,12 @@
 
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .active {
+            background-color: #FF1F3D;
+            color: white;
+        }
+    </style>
 </head>
 
 <body class="w-11/12 mx-auto">
@@ -25,37 +31,26 @@
         <!-- Button Section -->
         <section id="category-container" class="flex justify-center items-center gap-6 mt-8">
             <div>
-                <button onclick="getAllVideos()" class="btn btn-sm bg-[#FF1F3D] text-white">All</button>
+                <button id="all-active" onclick="getAllVideos()" class="btn btn-sm   text-black">All</button>
             </div>
         </section>
         <!-- load videos dynamically -->
         <section id="all-video-container" class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-10">
-            <!-- flex flex-col items-center md:flex-row md:flex-wrap md:justify-between  -->
-            <!-- 
-            <div class="card bg-base-100">
-                <figure class="relative">
-                    <img src="https://i.ibb.co/L1b6xSq/shape.jpg" alt="Shoes" />
-                    <span class="absolute text-sm text-white bottom-2 right-2 px-2 rounded opacity-45 bg-black">3hrs
-                        56min ago </span>
-                </figure>
-                <div class="flex  gap-4 px-2 py-5">
-                    <div class="profile">
-                        <div class="avatar">
-                            <div class="ring-primary ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
-                                <img src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="intro text-base font-bold">
-                        <h1>Shape of You</h1>
-                        <p class="flex gap-2 text-gray-400 text-sm font-normal">Rashedul Islam <img class="w-5"
-                                src="https://img.icons8.com/?size=100&id=98A4yZTt9abw&format=png&color=000000" alt="">
-                        </p>
-                        <p class=" text-gray-400 text-sm font-normal">91k Views</p>
-                    </div>
-                </div>
-            </div> -->
+
+            <div class="col-span-full flex flex-col items-center justify-center m-52 text-center ">
+                <img src="/assets/Icon.png" alt="">
+                <h2 class="text-2xl font-bold p-8">Oops!! Sorry, There is no content here</h2>
+            </div>
+
         </section>
+        <!-- Modal for video description -->
+        <dialog id="video_Details" class="modal">
+            <div class="modal-box" id="details-container">
+            </div>
+            <form method="dialog" class="modal-backdrop">
+                <button>close</button>
+            </form>
+        </dialog>
     </main>
     <script src="/script/index.js"></script>
 </body>
