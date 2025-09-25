@@ -40,7 +40,9 @@ const getAllVideos = async () => {
 
 const checkVids = (videos) => {
     const container = document.getElementById('all-video-container');
+    removeActiveclass();
     document.getElementById("all-active").classList.add("active")
+
     container.innerHTML = ``;
     videos.forEach(video => {
         const vidContainer = document.createElement('div');
@@ -82,15 +84,15 @@ const checkVids = (videos) => {
 const getCategoryVideos = async (id) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/phero-tube/category/${id}`);
     const data = await response.json();
-    // const btn = `btn-${id}`
-    viewCategoryVideo(data.category, id)
+    const btn = `btn-${id}`
+    viewCategoryVideo(data.category, btn)
 }
 
 const viewCategoryVideo = (categories, id) => {
     console.log(categories);
     removeActiveclass();
 
-    const clickedButton = document.getElementById(`btn-${id}`);
+    const clickedButton = document.getElementById(id);
     document.getElementsByClassName("active")
     clickedButton.classList.add("active")
     const container = document.getElementById("all-video-container");
