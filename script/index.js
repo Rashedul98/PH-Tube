@@ -29,8 +29,8 @@ const displayCategories = (data) => {
 }
 
 // Creating Dynamic Video Sections for "All" Button
-const getAllVideos = async () => {
-    const getResponse = await fetch("https://openapi.programming-hero.com/api/phero-tube/videos");
+const getAllVideos = async (inputValueForSearchBar = '') => {
+    const getResponse = await fetch(`https://openapi.programming-hero.com/api/phero-tube/videos?title=${inputValueForSearchBar}`);
     const datas = await getResponse.json();
     console.log(datas.videos);
 
@@ -64,8 +64,10 @@ const checkVids = (videos) => {
                     </div>
                     <div class="intro text-base font-bold">
                         <h1>${video.title}</h1>
-                        <p class="flex gap-2 text-gray-400 text-sm font-normal">${video.authors[0].profile_name}<img class="w-5"
-                                src="https://img.icons8.com/?size=100&id=98A4yZTt9abw&format=png&color=000000" alt="">
+                        <p class="flex gap-2 text-gray-400 text-sm font-normal">${video.authors[0].profile_name}
+                        ${video.authors[0].verified == true ? `<img class="w-5"
+                                src="https://img.icons8.com/?size=100&id=98A4yZTt9abw&format=png&color=000000" alt="">`: `Not Verified`}
+                        
                         </p>
                         <p class=" text-gray-400 text-sm font-normal">${video.others.views}</p>
                     </div>
@@ -128,8 +130,10 @@ const viewCategoryVideo = (categories, id) => {
                     </div>
                     <div class="intro text-base font-bold">
                         <h1>${cats.title}</h1>
-                        <p class="flex gap-2 text-gray-400 text-sm font-normal">${cats.authors[0].profile_name}<img class="w-5"
-                                src="https://img.icons8.com/?size=100&id=98A4yZTt9abw&format=png&color=000000" alt="">
+                        <p class="flex gap-2 text-gray-400 text-sm font-normal">${cats.authors[0].profile_name}
+                        ${cats.authors[0].verified == true ? `<img class="w-5"
+                                src="https://img.icons8.com/?size=100&id=98A4yZTt9abw&format=png&color=000000" alt="">`: `Not Verified`}
+                        
                         </p>
                         <p class=" text-gray-400 text-sm font-normal">${cats.others.views}</p>
                     </div>
@@ -170,3 +174,10 @@ const getVideoiInfo = (obj) => {
         </div>
     `
 }
+
+// search bar
+document.getElementById('search-bar').addEventListener('keyup', function (event) {
+    const inputValue = event.target.value;
+    getAllVideos(inputValue);
+})
+

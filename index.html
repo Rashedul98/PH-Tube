@@ -21,7 +21,16 @@
     <header class="mt-7">
         <nav class="flex justify-between items-center">
             <div><img class="w-[120px]" src="/assets/Logo.png" alt=""></div>
-            <button class="btn">Sort By View</button>
+            <label class="input">
+                <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                        stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                    </g>
+                </svg>
+                <input id="search-bar" type="search" required placeholder="Search" />
+            </label>
             <button class="bg-[#FF1F3D] btn text-white">blog</button>
         </nav>
     </header>
@@ -35,7 +44,7 @@
             </div>
         </section>
         <!-- load videos dynamically -->
-        <section id="all-video-container" class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-10">
+        <section id="all-video-container" class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-10 mb-10 ">
 
             <div class="col-span-full flex flex-col items-center justify-center m-52 text-center ">
                 <img src="/assets/Icon.png" alt="">
